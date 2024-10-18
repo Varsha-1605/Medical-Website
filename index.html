@@ -157,6 +157,7 @@
             <label for="toggler" class="fas fa-bars"></label> -->
             <a href="#" class="logo"><img src="img/swasthya-logo.png"></a>
             <div id="shownav"><img src="./img/menu.svg" alt="show menu"></div>
+            <div id="google-translate-container"></div>
             <nav class="navbar">
                 <div class="dark-btn-navbar">
                     <label id="dark-change"></label>
@@ -199,7 +200,6 @@
                 <a href="user_login.html">User Login</a>
                 <a href="doctor_login">Doctor Login</a>
                 <a href="admin_login">Admin Login</a>
-
             </nav>
         </header>
 
@@ -874,8 +874,61 @@ submitButton.addEventListener('click', function(event) {
         <script>
             AOS.init();
         </script>
-   
 
+
+        
+    <style>
+    #google_translate_element {
+        padding: 10px;
+    }
+    .goog-te-gadget {
+        font-family: Arial, sans-serif !important;
+    }
+    .goog-te-gadget-simple {
+        background-color: #fff !important;
+        border: 1px solid #e0e0e0 !important;
+        padding: 5px !important;
+        border-radius: 4px !important;
+    }
+    .goog-te-menu-value {
+        color: #333 !important;
+    }
+</style>
+
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    const GoogleTranslate = () => {
+        React.useEffect(() => {
+            const addScript = () => {
+                const script = document.createElement('script');
+                script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+                script.async = true;
+                document.body.appendChild(script);
+            };
+
+            window.googleTranslateElementInit = () => {
+                new window.google.translate.TranslateElement(
+                    {
+                        pageLanguage: 'en',
+                        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    },
+                    'google-translate-container'
+                );
+            };
+
+            addScript();
+        }, []);
+
+        return <div id="google-translate-container"></div>;
+    };
+
+    ReactDOM.render(
+        <GoogleTranslate />,
+        document.getElementById('google-translate-container')
+    );
+</script>
     </body>
     <div class="follow-us">
         <a href="https://www.linkedin.com/in/tushar1504/" target="_blank" style="--iconbg:#007AB9;">
@@ -888,4 +941,5 @@ submitButton.addEventListener('click', function(event) {
             <img src="https://cdn-icons-png.flaticon.com/128/733/733553.png" alt="GitHub Logo" />
         </a>
     </div>
+    
 </html>
