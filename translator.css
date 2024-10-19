@@ -1,0 +1,21 @@
+#google_translate_element {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.goog-te-gadget {
+    font-family: Arial, sans-serif !important;
+}
+
+.goog-te-gadget-simple {
+    background-color: #fff !important;
+    border: 1px solid #e0e0e0 !important;
+    padding: 5px !important;
+    border-radius: 4px !important;
+}
+
+.goog-te-menu-value {
+    color: #333 !important;
+}
